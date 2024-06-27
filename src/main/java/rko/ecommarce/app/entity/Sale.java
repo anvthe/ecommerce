@@ -24,6 +24,7 @@ public class Sale implements Serializable {
     private Long id;
 
     private BigDecimal amount;
+
     private LocalDate date;
 
     @ManyToOne
