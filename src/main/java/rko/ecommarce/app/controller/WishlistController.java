@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 import rko.ecommarce.app.dto.WishlistDTO;
 import rko.ecommarce.app.service.WishlistService;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/wishlist")
-@RequiredArgsConstructor
 public class WishlistController {
     private final WishlistService wishlistService;
 
