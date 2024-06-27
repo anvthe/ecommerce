@@ -19,6 +19,7 @@ public class ItemDTO {
         ItemDTO itemDTO = new ItemDTO();
         itemDTO.setId(item.getId());
         itemDTO.setName(item.getName());
+        itemDTO.setPrice(item.getPrice());
         return itemDTO;
     }
 }

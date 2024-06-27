@@ -26,7 +26,7 @@ public class Customer implements Serializable {
     @NotBlank
     private String name;
 
-    private String email;
+    private Integer cell;
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
     private List<Wishlist> wishlists;
