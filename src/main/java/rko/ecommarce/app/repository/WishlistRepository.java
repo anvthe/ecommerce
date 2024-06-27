@@ -8,7 +8,7 @@ import rko.ecommarce.app.entity.Wishlist;
 
 import java.util.List;
 
-public interface WishlistRepository extends JpaRepository<Wishlist, Integer> {
+public interface WishlistRepository extends JpaRepository<Wishlist, Long> {
 
     @Query("SELECT w.items FROM Wishlist w WHERE w.customer.id = :customerId")
     List<Item> findByCustomerId(@Param("customerId") Long customerId);
