@@ -7,12 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import rko.ecommarce.app.dto.TotalSaleAmountDTO;
 import rko.ecommarce.app.service.SaleService;
-
 import java.math.BigDecimal;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/sales")
-@RequiredArgsConstructor
 public class TotalSaleAmountCurrentDayController {
   private final SaleService saleService;
 
