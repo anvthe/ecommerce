@@ -4,10 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import rko.ecommarce.app.dto.ItemDTO;
 import rko.ecommarce.app.repository.SaleRepository;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -20,5 +22,8 @@ public class SaleService {
     public LocalDate getMaxSaleDay(LocalDate start, LocalDate end) {
         Pageable pageable = PageRequest.of(0, 10);
         return saleRepository.findMaxSaleDayBetween(start, end, pageable);
+    }
+    public List<ItemDTO> getTop5SellingItemsAllTime() {;
+        return saleRepository.findTop5SellingItemsAllTime(PageRequest.of(0, 5));
     }
 }
