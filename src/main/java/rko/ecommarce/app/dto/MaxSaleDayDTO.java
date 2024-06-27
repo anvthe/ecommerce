@@ -9,8 +9,4 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MaxSaleDayDTO {
     private String maxSaleDay;
-
-    public static MaxSaleDayDTO from(String maxSaleDay) {
-        return new MaxSaleDayDTO(maxSaleDay);
-    }
 }

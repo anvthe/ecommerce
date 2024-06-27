@@ -10,8 +10,4 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class TotalSaleAmountDTO {
     private BigDecimal totalSaleAmount;
-
-    public static TotalSaleAmountDTO from(BigDecimal totalSaleAmount) {
-        return new TotalSaleAmountDTO(totalSaleAmount);
-    }
 }
