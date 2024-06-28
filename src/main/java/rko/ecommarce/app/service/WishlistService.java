@@ -1,8 +1,7 @@
 package rko.ecommarce.app.service;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import rko.ecommarce.app.dto.ItemDTO;
 import rko.ecommarce.app.dto.WishlistDTO;
@@ -12,10 +11,10 @@ import rko.ecommarce.app.repository.WishlistRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class WishlistService {
-    private static final Logger log = LogManager.getLogger(WishlistService.class);
     private final WishlistRepository wishlistRepository;
 
     public WishlistDTO getWishlistByCustomerId(Long customerId) {
@@ -24,7 +23,6 @@ public class WishlistService {
         List<ItemDTO> itemDTOs = items.stream()
                 .map(ItemDTO::from)
                 .collect(Collectors.toList());
-        log.debug("Wishlist items for customer {}: {}", customerId, itemDTOs);
         return new WishlistDTO(itemDTOs);
     }
 }
