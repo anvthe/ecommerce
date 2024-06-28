@@ -28,10 +28,16 @@ public class SaleService {
 
     public LocalDate getMaxSaleDay(LocalDate start, LocalDate end) {
         log.info("Getting max sale day between {} and {}", start, end);
-        Pageable pageable = PageRequest.of(0, 10);
-        LocalDate maxSaleDay = saleRepository.findMaxSaleDayBetween(start, end, pageable);
-        log.debug("Max sale day: {}", maxSaleDay);
-        return maxSaleDay;
+        Pageable pageable = PageRequest.of(0, 1);
+        List<LocalDate> maxSaleDay = saleRepository.findMaxSaleDayBetween(start, end, pageable);
+
+        if (maxSaleDay.isEmpty()) {
+            log.debug("No sales found in the given date range");
+            return null;
+        }
+        LocalDate maxSaleDate = maxSaleDay.get(0);
+        log.debug("Max sale day: {}", maxSaleDate);
+        return maxSaleDate;
     }
 
     public List<ItemDTO> getTop5SellingItemsAllTime() {
