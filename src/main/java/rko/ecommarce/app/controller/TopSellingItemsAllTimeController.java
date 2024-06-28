@@ -8,14 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 import rko.ecommarce.app.dto.ItemDTO;
 import rko.ecommarce.app.dto.TopSellingItemsAllTimeDTO;
 import rko.ecommarce.app.service.SaleService;
-
 import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/sales")
 public class TopSellingItemsAllTimeController {
-
     private final SaleService saleService;
 
     @GetMapping("/top/alltime")
