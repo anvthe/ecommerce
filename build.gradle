@@ -25,6 +25,14 @@ configurations {
 	}
 }
 
+configurations.configureEach {
+	resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+		if (details.requested.group == 'org.apache.logging.log4j') {
+			details.useVersion '2.19.0'
+		}
+	}
+}
+
 repositories {
 	mavenCentral()
 }
@@ -39,10 +47,10 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	implementation 'org.springframework.boot:spring-boot-starter'
-	implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
-	implementation 'org.apache.logging.log4j:log4j-api:2.17.1'
 	implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+	implementation 'org.apache.logging.log4j:log4j-core:2.19.0'
+	implementation 'org.apache.logging.log4j:log4j-api:2.19.0'
+	implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.19.0'
 }
 
 tasks.named('test') {
