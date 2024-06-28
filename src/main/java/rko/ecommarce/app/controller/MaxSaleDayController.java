@@ -1,8 +1,7 @@
 package rko.ecommarce.app.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,9 +14,9 @@ import java.time.LocalDate;
 
 @RequiredArgsConstructor
 @RestController
+@Slf4j
 @RequestMapping("/api/sales")
 public class MaxSaleDayController {
-    private static final Logger log = LogManager.getLogger(MaxSaleDayController.class);
     private final SaleService saleService;
 
     @GetMapping("/max")
@@ -27,7 +26,6 @@ public class MaxSaleDayController {
         LocalDate startDate = LocalDate.parse(start);
         LocalDate endDate = LocalDate.parse(end);
         LocalDate maxSaleDay = saleService.getMaxSaleDay(startDate, endDate);
-        log.debug("Max sale day between {} and {} is {}", start, end, maxSaleDay);
         return ResponseEntity.ok(new MaxSaleDayDTO(maxSaleDay.toString()));
     }
 }
