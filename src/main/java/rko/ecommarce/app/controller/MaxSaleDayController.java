@@ -12,9 +12,9 @@ import rko.ecommarce.app.service.SaleService;
 
 import java.time.LocalDate;
 
+@Slf4j
 @RequiredArgsConstructor
 @RestController
-@Slf4j
 @RequestMapping("/api/sales")
 public class MaxSaleDayController {
     private final SaleService saleService;
@@ -22,7 +22,7 @@ public class MaxSaleDayController {
     @GetMapping("/max")
     public ResponseEntity<MaxSaleDayDTO> getMaxSaleDay(@RequestParam String start,
                                                        @RequestParam String end) {
-        log.info("Received request to get max sale day between {} and {}", start, end);
+        log.info("Receive request and get max sale day between {} and {}", start, end);
         LocalDate startDate = LocalDate.parse(start);
         LocalDate endDate = LocalDate.parse(end);
         LocalDate maxSaleDay = saleService.getMaxSaleDay(startDate, endDate);
