@@ -1,8 +1,7 @@
 package rko.ecommarce.app.service;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -14,10 +13,10 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class SaleService {
-    private static final Logger log = LogManager.getLogger(SaleService.class);
     private final SaleRepository saleRepository;
 
     public BigDecimal getTotalSaleAmountToday() {
