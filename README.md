@@ -10,7 +10,7 @@ I have developed an E-commerce business application and exposed several APIs for
 
     An IntelliJ IDEA of my choice
     Spring Boot version '3.3.1'
-    JDK 17
+    JDK 17 version
     Log4j2
     MySQL
     Entity Relationship Diagram from source
