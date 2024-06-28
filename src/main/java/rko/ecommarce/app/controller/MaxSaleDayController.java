@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import rko.ecommarce.app.dto.MaxSaleDayDTO;
 import rko.ecommarce.app.service.SaleService;
-
 import java.time.LocalDate;
 
 @RequiredArgsConstructor
