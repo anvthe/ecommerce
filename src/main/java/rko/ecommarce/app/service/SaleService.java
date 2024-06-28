@@ -27,7 +27,6 @@ public class SaleService {
     }
 
     public List<ItemDTO> getTop5SellingItemsAllTime() {
-        ;
         return saleRepository.findTop5SellingItemsAllTime(PageRequest.of(0, 5));
     }
 
